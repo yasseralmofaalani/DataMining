@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>المحاضرة 1 - تصميم قواعد البيانات التشغيلية (OLTP)</title>
+  <link rel="stylesheet" href="../assets/styles.css" />
+</head>
+
+<body>
+  <div class="branding-header">
+    <img src="../assets/logo.png" alt="شعار الجامعة" class="university-logo">
+    <div class="instructor-badge">إشراف: د. راكان رزوق</div>
+  </div>
+
+  <main class="lecture-wrap">
+    <a class="back-link" href="../index.html"><span>&larr;</span> العودة للفهرس</a>
+    <article class="lecture">
+      <h1>المحاضرة 1: تصميم قاعدة بيانات تشغيلية (OLTP) كحجر أساس للتنقيب</h1>
+
+      <div class="story-box">
+        في بيئات الأعمال الحقيقية (Real-World Business Environments)، تواجه المؤسسات التجارية تحديات معقدة في معالجة
+        الكميات الهائلة من المعاملات (Transactions) اليومية مثل المبيعات والطلبات. عند ظهور تناقضات في البيانات المالية
+        أو انقطاع في موثوقية النظام، تبرز الحاجة الملحة إلى بنية تحتية صلبة. الهدف الأساسي هو تصميم وبناء قاعدة بيانات
+        تشغيلية (Operational Database) تتميز بالدقة العالية (High Accuracy) والسرعة الفائقة خلال أوقات الذروة، لتشكل
+        المصدر الموثوق للبيانات الخام (Raw Data) التي سيتم الاعتماد عليها لاحقاً في عمليات التنقيب (Data Mining).
+      </div>
+
+      <div class="challenge-box">
+        <h3>الأهداف الأكاديمية والتطبيقية (Academic and Practical Objectives)</h3>
+        <p>فهم البنية التحتية للبيانات التشغيلية (Operational Data Infrastructure). يتضمن ذلك تصميم الجداول الأساسية
+          لمنظومات الأعمال (Business Systems) مع التطبيق الصارم للقيود (Constraints) لضمان سلامة البيانات (Data
+          Integrity) وتجنب التشوهات المستحكمة المعتمدة على مبدأ جودة البيانات (Garbage In, Garbage Out).</p>
+      </div>
+
+      <p>تعتبر أنظمة <strong>OLTP (Online Transactional Processing)</strong> العمود الفقري لأي عمل تجاري، حيث تهتم
+        بتسجيل العمليات (المعاملات) اليومية بدقة وسرعة عالية. في سياق التنقيب عن البيانات، جودة نماذج الذكاء الاصطناعي
+        والتنقيب تعتمد بنسبة 80% على جودة هذه البيانات التشغيلية المستخرجة من أنظمة الـ OLTP.</p>
+
+      <section class="theory-enrichment">
+        <h2>أولاً: مدخل شامل إلى التنقيب عن البيانات (Data Mining)</h2>
+        <p>
+          يُعرّف التنقيب عن البيانات (Data Mining) أكاديمياً بأنه عملية استخراج واكتشاف المعرفة (الأنماط المفيدة، غير
+          البديهية، والمخفية) من مستودعات البيانات الضخمة (Large Data Repositories). يُطلق على هذا المجال تقنياً مصطلح
+          <strong>اكتشاف المعرفة في قواعد البيانات (KDD - Knowledge Discovery in Databases)</strong>.
+        </p>
+
+        <div class="note">
+          <strong>ملاحظة جوهرية (Core Note):</strong> التمييز بين استرجاع البيانات والتنقيب (Data Retrieval vs. Data
+          Mining): التنقيب ليس مجرد استعلام تقليدي (Traditional Query) كاستخدام تعليمة SELECT للبحث عن سجلات محددة.
+          الاسترجاع يلبي الحاجة المباشرة للبيانات، بينما يركز التنقيب على استخراج الأنماط الخفية (Hidden Patterns)
+          والقواعد الارتباطية (Association Rules) المتقدمة لغايات دعم اتخاذ القرار (Decision Support).
+        </div>
+
+        <h3>خطوات الـ KDD (من البيانات الخام إلى المعرفة):</h3>
+        <ul class="timeline">
+          <li><strong>1. تنظيف البيانات (Data Cleaning):</strong> إزالة الضجيج والبيانات غير المتسقة.</li>
+          <li><strong>2. تكامل البيانات (Data Integration):</strong> دمج مصادر بيانات متعددة في مستودع موحد.</li>
+          <li><strong>3. اختيار البيانات (Data Selection):</strong> جلب البيانات المرتبطة فقط بمهمة التحليل.</li>
+          <li><strong>4. تحويل البيانات (Data Transformation):</strong> تلخيص أو توحيد البيانات (مثل تطبيع الأرقام
+            Normalization).</li>
+          <li><strong>5. التنقيب عن البيانات (Data Mining):</strong> الخطوة الأهم؛ تطبيق خوارزميات ذكية لاستخراج
+            الأنماط.</li>
+          <li><strong>6. تقييم الأنماط (Pattern Evaluation):</strong> التعرف على الأنماط المثيرة والمفيدة حقاً.</li>
+          <li><strong>7. عرض المعرفة (Knowledge Presentation):</strong> استخدام تقنيات التمثيل المرئي (Visualization)
+            لتقديمها لمتخذي القرار.</li>
+        </ul>
+
+        <h3>المهام الرئيسية في التنقيب (Data Mining Tasks):</h3>
+        <ul>
+          <li><strong>التصنيف (Classification):</strong> تدريب النماذج الخوارزمية (Algorithmic Models) للتنبؤ بفئات
+            البيانات غير المحددة مسبقاً (Unknown Classes).</li>
+          <li><strong>التجميع (Clustering):</strong> تجميع السجلات غير المصنفة (Unlabeled Data) إلى فئات (Clusters)
+            بناءً على مقاييس التشابه (Similarity Metrics).</li>
+          <li><strong>تحليل الارتباط (Association Analysis):</strong> بناء القواعد (Rule Mining) لاكتشاف المجموعات
+            المتكررة المشتركة (Frequent Itemsets) ضمن العمليات.</li>
+          <li><strong>كشف القيم الشاذة (Anomaly/Outlier Detection):</strong> تحديد البيانات أو السلوكيات التي تنحرف بشكل
+            جوهري عن التوزيع الطبيعي (Normal Distribution)، والتي تُطبق في أنظمة كشف الاحتيال (Fraud Detection Systems).
+          </li>
+        </ul>
+      </section>
+
+      <details open>
+        <details open>
+          <summary>التأصيل النظري: معمارية نظام القيود الأربعة (ACID Properties)</summary>
+          <div class="theory-detail">
+            <p>لضمان موثوقية أنظمة المعالجة التحليلية المباشرة (OLTP) وسلامة البيانات لعمليات التنقيب المستقبلية، تلتزم
+              محركات قواعد البيانات العلائقية (Relational Database Management Systems) بمعايير <strong>ACID
+                Properties</strong> الصارمة:</p>
+            <ul>
+              <li><strong>الذرية (Atomicity):</strong> تُعد المعاملة (Transaction) وحدة تنفيذ غير قابلة للتجزئة. يتطلب
+                النظام إما إكمال المعاملة بكامل عملياتها بنجاح (Commit)، أو التراجع الكلي عن كل العمليات (Rollback) في
+                حال حدوث خطأ جزئي.</li>
+              <li><strong>الاتساق (Consistency):</strong> إجبار العمليات المعاملاتية (Data Mutations) للامتثال لكافة
+                القيود الهيكلية (Structural Constraints) المحددة في المخطط (Schema).</li>
+              <li><strong>العزل (Isolation):</strong> إدارة المعاملات المتزامنة (Concurrent Transactions) المستقلة بصورة
+                تمنع تداخلها بحيث لا تتقاطع في التأثير على العناصر الوسيطة للمسار الحسابي للأنظمة الأخرى، باستخدام أنساق
+                القفل (Locking Mechanisms).</li>
+              <li><strong>الديمومة (Durability):</strong> ضمان ثبات التغييرات بشكل دائم (Non-Volatile Persistence) فور
+                اعتمادها حتى عند تعرض المخدمات القائمة للفشل النظامي التام (System Failure).</li>
+            </ul>
+          </div>
+        </details>
+
+        <section>
+          <h2>التصميم الهيكلي لـ OLTP لتجنب العيوب (Normalization)</h2>
+          <p>
+            في أنظمة OLTP يتم تصميم الجداول باستخدام مبدأ "التطبيع" أو <strong>Normalization</strong> (عبر تطبيق القاعدة
+            الثالثة 3NF عادةً). الهدف من هذا التصميم هو:
+          </p>
+          <ul>
+            <li><strong>تجنب التكرار المفرط:</strong> حفظ كل معلومة في مكان واحد فقط. فلو تغير رقم هاتف العميل، يتغير في
+              مكان واحد فقط، وتتجنب الشذوذ عند التحديث (Update Anomalies).</li>
+            <li><strong>الكتابة السريعة:</strong> لأن الجداول صغيرة وضيقة، إدراج (INSERT) سجل جديد يكون سريعاً جداً
+              مقارنة
+              بالجداول العريضة المتضخمة.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>التطبيق العملي: بناء المخطط في PostgreSQL بأدق التفاصيل</h2>
+          <p>دعونا الآن نبني الجداول الرئيسية. انتبه لاختيار أنواع البيانات بدقة هندسية عالية:</p>
+          <pre><code>-- 1. جدول العملاء: تخزين المعرفات الشخصية
+CREATE TABLE customers (
+    customer_id SERIAL PRIMARY KEY, 
+    -- SERIAL: نوع بيانات ينشئ تسلسلاً تلقائياً (Auto-increment).
+    -- PRIMARY KEY: يضمن تفرد كل عميل ويعمل كفهرس (B-Tree Index) لتسريع البحث
+    full_name VARCHAR(150) NOT NULL, 
+    -- NOT NULL constraint: يُجبر إدخال الاسم
+    email VARCHAR(100) UNIQUE,      
+    -- UNIQUE constraint: يمنع تكرار الإيميل (قيد مهم لضمان جودة البيانات أثناء الـ Data Cleaning)
+    city VARCHAR(50),
+    signup_date DATE DEFAULT CURRENT_DATE 
+    -- إعطاء قيمة افتراضية لتاريخ اليوم يوفر علينا كتابته صراحة
+);
+
+-- 2. جدول المنتجات: مستودع الأصناف
+CREATE TABLE products (
+    product_id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    category VARCHAR(50),
+    price DECIMAL(10, 2) CHECK (price > 0), 
+    -- DECIMAL(10,2): يعني 10 خانات إجمالاً، منها 2 بعد الفاصلة. 
+    -- هذا النوع دقيق جداً بخلاف FLOAT الذي قد يخطئ في تدوير الكسور!
+    -- CHECK constraint: ضمان صحة العمل (لا يوجد سعر بالسالب).
+    stock_quantity INT DEFAULT 0
+);
+
+-- 3. جدول الطلبات: الربط المنطقي بين الكيانات (Relationship)
+CREATE TABLE orders (
+    order_id SERIAL PRIMARY KEY,
+    customer_id INT REFERENCES customers(customer_id) ON DELETE RESTRICT, 
+    -- REFERENCES: مفتاح أجنبي (Foreign Key) يربط الطلب بصاحبه الحقيقي.
+    -- ON DELETE RESTRICT: يمنع حذف العميل طالما لديه طلبات مسجلة (للحفاظ على سلامة الـ History).
+    product_id INT REFERENCES products(product_id) ON DELETE RESTRICT,
+    quantity INT CHECK (quantity > 0),
+    order_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
+    -- TIMESTAMP: الدقة حتى الثواني وأجزاء الثانية ضرورية، لأن التاريخ لوحده DATE لا يكفي لمعرفة متى تم الطلب بالضبط.
+);</code></pre>
+        </section>
+
+        <div class="pro-tip">
+          التفكير كخبير بيانات: دائماً استخدم <code>DECIMAL</code> أو <code>NUMERIC</code> للتعامل مع المبالغ المالية.
+          الأنواع مثل <code>FLOAT</code> تعتمد مبدأ (Floating-point) التقريبي، مما يسبب مشكلة "التقريب المفقود" عند
+          تجميع
+          أو حساب ملايين المعاملات (Aggregation). الدقة هنا ليست خياراً، بل شرط إلزامي.
+        </div>
+
+        <div class="quiz-section">
+          <h3>✅ نقاش وتفكير عميق</h3>
+          <ol>
+            <li>ناقش الأثر التقني في حال افتقار النظام لخاصية العزل (Isolation) عند محاولة تنفيذ معاملات متزامنة
+              (Concurrent Transactions) تتنافس على نفس التورد (Shared Resource). ما هي الآليات البرمجية (Programmatic
+              Mechanisms) لمعالجة هذه الحالة؟</li>
+            <li>قيّم تأثير استخدام القيد <code>ON DELETE CASCADE</code> بدلاً من <code>ON DELETE RESTRICT</code> على
+              تكاملية البيانات المرجعية (Referential Integrity) وعلى تماسك مسارات البيانات اللاحقة في أنظمة التحليل.
+            </li>
+            <li>فسّر الأسباب الهيكلية (Structural Reasons) التي تجعل المخططات المُطبعة (Normalized Schemas) في أنظمة
+              OLTP غير فعالة وذات أداء منخفض عند تنفيذ استعلامات تحليلية معقدة (Complex Analytical Queries) تعتمد على
+              تجميع بيانات تاريخية (Historical Data Aggregation).</li>
+          </ol>
+        </div>
+
+        <nav class="lecture-nav">
+          <a href="../index.html" class="nav-btn" style="background: var(--bg-main); color: var(--primary);">الفهرس</a>
+          <a href="lecture02.html" class="nav-btn next">المحاضرة التالية: بناء مستودع البيانات &rarr;</a>
+        </nav>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="instructor">إعداد المدرس: م. ياسر المفعلاني</div>
+    <p>&copy; 2026 البحث والتنقيب عن المعطيات - جامعة أنطاكيا السورية الخاصة</p>
+  </footer>
+</body>
+
+</html>
