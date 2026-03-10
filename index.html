@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>البحث والتنقيب عن المعطيات | كورس عملي مكثف</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+
+<body>
+  <div class="branding-header">
+    <img src="assets/logo.png" alt="شعار الجامعة" class="university-logo">
+    <div class="instructor-badge">إشراف: د. راكان رزوق</div>
+  </div>
+
+  <header class="hero">
+    <div class="container">
+      <h1>مادة البحث والتنقيب عن المعطيات</h1>
+      <p>
+        رحلة متكاملة تبدأ من أسس تخزين البيانات (Data Warehousing) وصولاً إلى خوارزميات التنقيب المتقدمة (Data Mining)
+        والتطبيقات المكانية (Spatial Mining).
+      </p>
+      <div class="instructor-name">المحاضر: م. ياسر المفعلاني</div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="tools-section">
+      <h2>🛠️ البرامج والتقنيات المستخدمة في الكورس</h2>
+      <div class="tools-flex">
+        <div class="tool-item">🐘 PostgreSQL (لعمليات OLTP و OLAP)</div>
+        <div class="tool-item">🐍 Python (Pandas, Scikit-Learn)</div>
+        <div class="tool-item">🐦 Weka (للتنقيب المرئي)</div>
+        <div class="tool-item">🌍 GeoPandas & QGIS (للتنقيب المكاني)</div>
+      </div>
+    </section>
+
+    <div class="grid">
+      <!-- المحور الأول -->
+      <a class="card" href="lectures/lecture01.html">
+        <span class="badge">المحور الأول: DW</span>
+        <h3>المحاضرة 1: تصميم OLTP</h3>
+        <p>بناء الجداول الأساسية، العلاقات، والقيود البرمجية في PostgreSQL لضمان سلامة البيانات التشغيلية.</p>
+      </a>
+
+      <a class="card" href="lectures/lecture02.html">
+        <span class="badge">المحور الأول: DW</span>
+        <h3>المحاضرة 2: مستودعات البيانات</h3>
+        <p>فهم Fact Tables و Dimension Tables وتطبيق Star Schema لتحويل البيانات إلى معلومات تحليلية.</p>
+      </a>
+
+      <a class="card" href="lectures/lecture03.html">
+        <span class="badge">المحور الأول: DW</span>
+        <h3>المحاضرة 3: عمليات ETL عملياً</h3>
+        <p>استخدام Python (Pandas) لاستخراج، تنظيف، وتحميل البيانات من ملفات Excel إلى قواعد البيانات.</p>
+      </a>
+
+      <a class="card" href="lectures/lecture04.html">
+        <span class="badge">المحور الأول: DW</span>
+        <h3>المحاضرة 4: تحليل OLAP</h3>
+        <p>تنفيذ استعلامات متقدمة باستخدام Rollup و Cube و Pivot Tables لاستخراج تقارير ديناميكية.</p>
+      </a>
+
+      <!-- المحور الثاني -->
+      <a class="card" href="lectures/lecture05.html">
+        <span class="badge">المحور الثاني: Data Mining</span>
+        <h3>المحاضرة 5: أساسيات التنقيب</h3>
+        <p>مقدمة في المفاهيم الأساسية والفرق بين التنقيب في البيانات والتعلم الآلي والذكاء الاصطناعي.</p>
+      </a>
+
+      <a class="card" href="lectures/lecture06.html">
+        <span class="badge">المحور الثاني: Data Mining</span>
+        <h3>المحاضرة 6: أشجار القرار</h3>
+        <p>تطبيق خوارزمية Decision Tree للتصنيف باستخدام Scikit-Learn وتقييم دقة النموذج مرئياً.</p>
+      </a>
+
+      <a class="card" href="lectures/lecture07.html">
+        <span class="badge">المحور الثاني: Data Mining</span>
+        <h3>المحاضرة 7: KNN & Logistic Regression</h3>
+        <p>مقارنة الخوارزميات التصنيفية وتحليل Confusion Matrix لتقييم أداء النماذج البرمجية.</p>
+      </a>
+
+      <a class="card" href="lectures/lecture08.html">
+        <span class="badge">المحور الثاني: Data Mining</span>
+        <h3>المحاضرة 8: تجميع البيانات (K-Means)</h3>
+        <p>تقسيم البيانات إلى مجموعات متجانسة آلياً وتصور النتائج باستخدام Matplotlib.</p>
+      </a>
+
+      <a class="card" href="lectures/lecture09.html">
+        <span class="badge">المحور الثاني: Data Mining</span>
+        <h3>المحاضرة 9: قواعد الارتباط</h3>
+        <p>تحليل سلة المشتريات باستخدام خوارزمية Apriori واكتشاف الأنماط الخفية في سلوك العملاء.</p>
+      </a>
+
+      <a class="card" href="lectures/lecture10.html">
+        <span class="badge">المحور الثاني: Data Mining</span>
+        <h3>المحاضرة 10: كشف القيم الشاذة</h3>
+        <p>استخدام Z-Score و Isolation Forest لتحديد البيانات غير الطبيعية وحالات الاحتيال.</p>
+      </a>
+
+      <!-- المحور الثالث -->
+      <a class="card" href="lectures/lecture11.html">
+        <span class="badge">المحور الثالث: تطبيقات</span>
+        <h3>المحاضرة 11: التنقيب المكاني</h3>
+        <p>دمج أنظمة المعلومات الجغرافية (GIS) مع التنقيب باستخدام GeoPandas و DBSCAN المكاني.</p>
+      </a>
+
+      <a class="card" href="lectures/lecture12.html">
+        <span class="badge">المحور الثالث: تطبيقات</span>
+        <h3>المحاضرة 12: المشروع المتكامل</h3>
+        <p>تطبيق عملي شامل يجمع كافة المهارات المكتسبة لبناء نظام تنبؤي وتحليلي لبيانات واقعية.</p>
+      </a>
+
+      <a class="card" href="lectures/lecture13.html">
+        <span class="badge">المحور الثالث: تطبيقات</span>
+        <h3>المحاضرة 13: تقنيات متقدمة</h3>
+        <p>المعالجة المسبقة المتقدمة للبيانات وهندسة الميزات (Feature Engineering) لرفع كفاءة النماذج.</p>
+      </a>
+
+      <a class="card" href="lectures/lecture14.html">
+        <span class="badge">المحور الثالث: تطبيقات</span>
+        <h3>المحاضرة 14: العرض والنتائج</h3>
+        <p>كيفية تصوير النتائج بشكل احترافي وبناء لوحات تحكم (Dashboards) تفاعلية للبيانات المنقبة.</p>
+      </a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="instructor">إعداد المدرس: م. ياسر المفعلاني</div>
+    <p>&copy; 2026 البحث والتنقيب عن المعطيات - جامعة أنطاكيا السورية الخاصة</p>
+  </footer>
+</body>
+
+</html>
